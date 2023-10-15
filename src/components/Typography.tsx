@@ -1,4 +1,4 @@
-import { Box, Divider, Typography } from "@mui/material";
+import { Box, Button, Divider, Typography } from "@mui/material";
 
 const TypographyComponent = () => {
   return (
@@ -55,6 +55,12 @@ const TypographyComponent = () => {
       <Typography variant="overline" display="block" gutterBottom>
         overline text
       </Typography>
+
+      <Divider />
+      <Button variant="contained" color="secondary">
+        TEST BUTON
+      </Button>
+      <Button variant="contained">TEST BUTON</Button>
     </Box>
   );
 };
