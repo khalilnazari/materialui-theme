@@ -1,22 +1,18 @@
-import { Box, Button } from "@mui/material";
+import { Box, Toolbar } from "@mui/material";
 import "./App.css";
-
-import TypographyComponent from "./components/Typography";
-import { useTheme } from "./context/themeContext";
+import TopHeader from "./components/TopHeader";
+import Sidebar from "./components/Sidebar";
 
 function App() {
-  const { toggleTheme } = useTheme();
-
   return (
-    <Box
-      bgcolor={"background.default"}
-      color={"text.primary"}
-      sx={{ padding: 10 }}
-    >
-      <Button variant="contained" onClick={toggleTheme}>
-        Toggle Theme
-      </Button>
-      <TypographyComponent />
+    <Box bgcolor={"background.default"} color={"text.primary"}>
+      <TopHeader />
+      <Toolbar />
+
+      <Box sx={{ display: "flex", gap: "20px" }}>
+        <Sidebar />
+        <Box sx={{ backgroundColor: "white", flexGrow: "1" }}>main content</Box>
+      </Box>
     </Box>
   );
 }
