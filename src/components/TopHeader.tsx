@@ -15,6 +15,8 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
+import { Brightness4 } from "@mui/icons-material";
+import { useTheme } from "../context/themeContext";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -57,6 +59,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function TopHeader() {
+  const { toggleTheme } = useTheme();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
     React.useState<null | HTMLElement>(null);
@@ -193,6 +196,13 @@ export default function TopHeader() {
           </Search>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
+            <IconButton
+              size="large"
+              color="inherit"
+              onClick={() => toggleTheme()}
+            >
+              <Brightness4 />
+            </IconButton>
             <IconButton
               size="large"
               aria-label="show 4 new mails"

@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 const Login = () => {
   return (
     <Box
+      bgcolor={"background.default"}
+      color={"text.primary"}
       sx={{
         display: "flex",
         justifyContent: "center",

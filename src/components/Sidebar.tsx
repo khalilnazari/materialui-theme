@@ -13,10 +13,12 @@ const Sidebar = () => {
     <Box
       sx={{
         width: "300px",
-        backgroundColor: "#f0f0f0",
         height: "calc(100vh - 64px)",
         overflowY: "auto",
+        position: "sticky",
       }}
+      bgcolor={"background.paper"}
+      color={"text.primary"}
     >
       <List>
         {["Dashboard", "Tickets", "Projects", "Groups"].map((text, index) => (

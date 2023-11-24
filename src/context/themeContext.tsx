@@ -3,6 +3,8 @@ import {
   ThemeProvider as MuiThemeProvider,
   createTheme,
 } from "@mui/material/styles";
+import { PaletteMode } from "@mui/material";
+import { blue, grey } from "@mui/material/colors";
 
 // Define the theme type
 type Theme = "light" | "dark";
@@ -13,10 +15,35 @@ interface ThemeContextType {
   toggleTheme: () => void;
 }
 
-const themeSettings = (mode: any) => {
+const themeSettings = (mode: PaletteMode) => {
   return {
     palette: {
       mode,
+      ...(mode === "light"
+        ? {
+            primary: blue,
+            divider: grey[800],
+            background: {
+              default: "#fff",
+              paper: grey[100],
+            },
+            text: {
+              primary: grey[900],
+              secondary: grey[800],
+            },
+          }
+        : {
+            primary: grey,
+            divider: grey[700],
+            background: {
+              default: grey[900],
+              paper: grey[800],
+            },
+            text: {
+              primary: "#fff",
+              secondary: grey[500],
+            },
+          }),
     },
   };
 };
@@ -31,7 +58,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   }
 
   const [mode, setMode] = React.useState<Theme>(
-    currentMode ? currentMode : "dark"
+    currentMode ? currentMode : "light"
   );
 
   localStorage.setItem("theme", JSON.stringify(mode));

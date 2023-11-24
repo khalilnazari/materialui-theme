@@ -14,11 +14,11 @@ function App() {
 
       <Box sx={{ display: "flex", gap: "20px" }}>
         <Sidebar />
+
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/forget-password" element={<ForgetPassword />} />
         </Routes>
-        {/* <Box sx={{ backgroundColor: "white", flexGrow: "1" }}>main content</Box> */}
       </Box>
     </Box>
   );
